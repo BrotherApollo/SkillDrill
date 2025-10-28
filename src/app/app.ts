@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { ProblemDisplay } from './problem-display/problem-display';
+import { ChordTrainer } from "./chord-trainer/chord-trainer";
+import { Toolbar } from "./toolbar/toolbar";
 
 @Component({
   selector: 'app-root',
-  imports: [ProblemDisplay],
+  imports: [ProblemDisplay, ChordTrainer, Toolbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

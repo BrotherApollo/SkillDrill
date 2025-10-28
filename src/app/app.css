@@ -1,0 +1,12 @@
+* {
+    display: inline-block;
+    outline: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+app-toolbar {
+  display: flex;
+  align-items: center; /* Vertical */
+  height: 60px;
+}
