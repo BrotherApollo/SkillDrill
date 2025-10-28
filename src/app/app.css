@@ -10,3 +10,7 @@ app-toolbar {
   align-items: center; /* Vertical */
   height: 60px;
 }
+
+problem-display {
+    margin: 15px;
+}

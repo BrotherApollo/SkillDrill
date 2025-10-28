@@ -1,1 +1,19 @@
 <p>chord-trainer works!</p>
+<button (click)="generate_chord_list()">Generate Chords</button>
+<button (click)="show_status()">Log Status</button>
+<fieldset>
+    <input type="checkbox" id="natrualChords" [(ngModel)]="naturalChords">
+    <label for="natrualChords">Natural Chords</label>
+
+    <input type="checkbox" id="sharpChords" [(ngModel)]="sharpChords">
+    <label for="sharpChords">Sharp Chords</label>
+
+    <input type="checkbox" id="flatChords" [(ngModel)]="flatChords">
+    <label for="flatChords">Flat Chords</label>
+
+    <input type="checkbox" id="majorChords" [(ngModel)]="majorChords">
+    <label for="majorChords">Major Chords</label>
+
+    <input type="checkbox" id="minorChords" [(ngModel)]="minorChords">
+    <label for="minorChords">Minor Chords</label>
+</fieldset>
