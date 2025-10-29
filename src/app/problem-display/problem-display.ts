@@ -21,8 +21,8 @@ type Difficulty = {
 export class ProblemDisplay {
   streak: number = 0
   highScore: number = 0
-  max: number = 20
-  min: number = 5
+  max: number = 9
+  min: number = 0
   value_one: number = 0
   value_two: number = 0
   answer: number = this.multiply()

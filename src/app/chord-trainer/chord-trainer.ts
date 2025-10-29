@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,10 +14,44 @@ export class ChordTrainer {
   majorChords: boolean = true;
   minorChords: boolean = true;
   chordList: string[] = [];
+  displayChordList: string = "";
+  displayChord = signal<string>("");
+  private displayInterval?: number;
+  displayDelay: number = 5;
   
+  constructor() {
+    this.generate_chord_list()
+  }
+
+  ngOnDestroy() {
+    this.stopLoop();
+  }
 
   show_status(): void {
     console.log(this.chordList)
+  }
+
+  displayChords(): void {
+    this.generate_chord_list();
+    this.displayChordList = this.chordList.join(", ");
+  }
+
+  chordLoop() {
+    // Setting first value
+    let index = 1;
+    this.displayChord.set(this.chordList[0])
+
+    // loop timer that trigger every {displayDelay} seconds
+    this.displayInterval = window.setInterval(() => {
+      this.displayChord.set(this.chordList[index]);
+      console.log(this.displayChord())
+      index++;
+      index = (index + 1) % this.chordList.length;
+    }, this.displayDelay * 1000)
+  }
+
+  stopLoop(): void {
+    clearInterval(this.displayInterval)
   }
 
   generate_chord_list(): void {
@@ -32,6 +66,7 @@ export class ChordTrainer {
       flats.push(chord+"b")
     }
 
+    // compiling list based on checkboxes
     console.log(baseChords)
     let actualBase: string[] = []
     if (this.naturalChords) {
@@ -55,6 +90,7 @@ export class ChordTrainer {
       }
     }
 
-
+    // shuffle the list
+    this.chordList.sort(() => Math.random() - 0.5)
   }
 }
