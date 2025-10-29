@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  angular-dev:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "9000:4200"
+    command: sh -c "npm install && npm start -- --host 0.0.0.0"
+    container_name: skill-drill-dev
