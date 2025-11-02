@@ -58,6 +58,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "host": "0.0.0.0",
+            "allowedHosts": ["odium", "honor"]
+          },
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
