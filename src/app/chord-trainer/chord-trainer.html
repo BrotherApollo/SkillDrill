@@ -1,6 +1,5 @@
-<p>chord-trainer works!</p>
-<button (click)="displayChords()">Display Random List</button>
-<button (click)="chordLoop()">Chord Time Challenge</button>
+<h1>Chord Trainer!</h1>
+
 <input type="number" min="1" max="15" [(ngModel)]="displayDelay">
 <fieldset>
     <input type="checkbox" id="natrualChords" [(ngModel)]="naturalChords">
@@ -18,6 +17,8 @@
     <input type="checkbox" id="minorChords" [(ngModel)]="minorChords">
     <label for="minorChords">Minor Chords</label>
 </fieldset>
-
+<br>
 <p>{{ displayChordList }}</p>
 <h2>{{ displayChord() }}</h2>
+<button (click)="displayChords()">Go</button>
+<button (click)="chordLoop()">Chord Time Challenge</button>

@@ -34,12 +34,18 @@ export class ChordTrainer {
   displayChords(): void {
     this.generate_chord_list();
     this.displayChordList = this.chordList.join(", ");
+
+    this.stopLoop();
+    this.displayChord.set("");
   }
 
   chordLoop() {
     // Setting first value
     let index = 1;
     this.displayChord.set(this.chordList[0])
+
+    // clearing other loops
+    this.stopLoop()
 
     // loop timer that trigger every {displayDelay} seconds
     this.displayInterval = window.setInterval(() => {
@@ -48,6 +54,9 @@ export class ChordTrainer {
       index++;
       index = (index + 1) % this.chordList.length;
     }, this.displayDelay * 1000)
+
+    // removing displayed list
+    this.displayChordList = "";
   }
 
   stopLoop(): void {
